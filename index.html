@@ -7,9 +7,13 @@
   <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
   <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet" />
   <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    body { margin: 0; padding: 56px; display: flex; align-items:center; justify-content: center; background-color: blue; }
+    #map {  width: 100%; height: 80vh; margin-top: auto;}
 
+
+    .maplibregl-ctrl-bottom-right{
+      display: none !important;
+    }
     /* Custom marker design */
     .custom-marker {
       width: 5px;
@@ -109,7 +113,14 @@
           }
         ],
         "id": "openstreetmap"
-      }
+      },
+       dragPan: true,        // Disable dragging
+  scrollZoom: false,     // Disable zoom with scroll
+  boxZoom: false,        // Disable box zoom
+  doubleClickZoom: false, // Disable zoom with double-click
+  touchZoomRotate: false, // Disable touch gestures for zoom and rotate
+  dragRotate: false,     // Disable drag rotation
+  pitchWithRotate: false // Disable pitch changes with rotation
     });
 
     // Add navigation control
@@ -137,10 +148,10 @@
 
     // Add markers dynamically using location names
     const locations = [
-      // { name: "Austin, Texas, USA" },
-      // { name: "San Francisco, California, USA" },
-      // { name: "Sydney, Australia" }, 
-      { name: "Hyderabad, India, Asia" }
+      { name: "Austin, Texas, USA" },
+      { name: "San Francisco, California, USA" },
+      { name: "Sydney, Australia" }, 
+     
       
     ];
 
